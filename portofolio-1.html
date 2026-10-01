@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitam Putih Literasi | Portofolio Photography, Videography & Digital Solutions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#DFB15B',
+                            goldHover: '#C59A44',
+                            darkBg: '#0F1115',
+                            cardBg: '#181A20',
+                            border: '#2A2D36',
+                            cyan: '#06B6D4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F1115;
+            color: #E2E8F0;
+        }
+        .font-serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF3D1 0%, #DFB15B 50%, #9A7426 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-glow:hover {
+            box-shadow: 0 10px 30px -10px rgba(223, 177, 91, 0.2);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F1115;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2D36;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DFB15B;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#0F1115]/80 backdrop-blur-md border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-gold to-yellow-600 flex items-center justify-center text-slate-950 font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    HPLS
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-wider text-white group-hover:text-brand-gold transition-colors">Hitam.Putih.Literasi.Studio</span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase">Visual & Digital Hub</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-brand-gold transition-colors">About Us</a>
+                <a href="#services" class="hover:text-brand-gold transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-brand-gold transition-colors">Portofolio</a>
+                <a href="#calculator" class="hover:text-brand-gold transition-colors">Budget Estimation</a>
+                <a href="#testimonials" class="hover:text-brand-gold transition-colors">Testimonials</a>
+            </div>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-slate-950 bg-gradient-to-r from-brand-gold to-amber-400 rounded-full hover:shadow-lg hover:shadow-brand-gold/20 hover:scale-105 transition-all">
+                    Cotact Us
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white rounded-lg focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-brand-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block text-gray-300 hover:text-brand-gold py-2 border-b border-gray-800">About Us</a>
+            <a href="#services" class="block text-gray-300 hover:text-brand-gold py-2 border-b border-gray-800">Services</a>
+            <a href="#portfolio" class="block text-gray-300 hover:text-brand-gold py-2 border-b border-gray-800">Portofolio</a>
+            <a href="#calculator" class="block text-gray-300 hover:text-brand-gold py-2 border-b border-gray-800">Budget Estimation</a>
+            <a href="#testimonials" class="block text-gray-300 hover:text-brand-gold py-2 border-b border-gray-800">Testimonils</a>
+            <a href="#contact" class="block text-center mt-4 w-full py-3 text-slate-950 font-bold bg-brand-gold rounded-xl">Cotact Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        <!-- Interactive Mesh Canvas Background -->
+        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40"></canvas>
+        
+        <!-- Glow accents -->
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cardBg border border-brand-border text-brand-gold text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        Ready for New Project
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                        Get Your Moments, <br class="hidden sm:inline">
+                        <span class="gold-gradient-text font-serif-title italic font-normal">Branding</span> & Build Modern Web
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        A blend of elevated visual aesthetics and cutting-edge digital strategies, delivering exceptional services that create a lasting impact.
+                        <span class="text-white font-medium">Photography, Videography, Social Media</span>, until <span class="text-white font-medium">Website Maintenance</span> interactive.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-brand-gold hover:bg-brand-goldHover text-slate-950 font-bold rounded-xl shadow-lg shadow-brand-gold/20 flex items-center justify-center gap-2 transition-all">
+                            <span>View Our Portfolio</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto px-8 py-4 bg-brand-cardBg hover:bg-brand-border text-white font-semibold rounded-xl border border-brand-border flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="calculator" class="w-5 h-5 text-brand-gold"></i>
+                            <span>Get a Cost Estimate</span>
+                        </a>
+                    </div>
+
+                    <!-- Client Trust Badges -->
+                    <div class="pt-8 border-t border-brand-border/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">25+</p>
+                            <p class="text-xs text-gray-400">Completed Projects</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">100%</p>
+                            <p class="text-xs text-gray-400">Satisfied Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-white">5+ Years</p>
+                            <p class="text-xs text-gray-400">Creative Expertise</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Showcase Frame -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-gold via-amber-600 to-brand-cyan opacity-30 blur-xl"></div>
+                        <div class="relative bg-brand-cardBg border border-brand-border rounded-2xl p-4 overflow-hidden shadow-2xl">
+                            <div class="aspect-[4/5] rounded-xl overflow-hidden relative group">
+                                <img src="file:///C:/Users/eHP/Downloads/FB_IMG_1790741892691.jpg.jpeg" alt="Creative Professional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                                
+                                <!-- Floating Badge 1 -->
+                                <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2 text-xs text-white">
+                                    <i data-lucide="camera" class="w-4 h-4 text-brand-gold"></i>
+                                    <span>Red Cinema</span>
+                                </div>
+
+                                <!-- Floating Badge 2 -->
+                                <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-slate-900/80 backdrop-blur-md border border-white/10">
+                                    <p class="text-xs text-brand-gold font-medium uppercase tracking-widest mb-1">Fouder of Studio</p>
+                                    <p class="text-sm font-semibold text-white">Muhammad Arvin Junyarto</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-950/50 relative border-y border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">About Our Profile</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white leading-snug">
+                        Elevating Visuals Through Digital Innovation
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        We are a multi-disciplinary creative practitioner focused on visual storytelling and digital infrastructure development. From high-resolution photography and cinematic video production for reels and ads, to social media engagement management and the development of high-performing, responsive websites.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        What is Our Goals: <strong class="text-white">Helping brands, businesses, and individuals stand out in the digital era,</strong> with upscale visual aesthetics and optimal conversion.
+                    </p>
+
+                    <!-- Key Pillars -->
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-brand-cardBg border border-brand-border">
+                            <i data-lucide="sparkles" class="w-6 h-6 text-brand-gold mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Aesthetic Visuals</h4>
+                            <p class="text-xs text-gray-400 mt-1">Cinematic Visual Composition and Professional Video Color Grading</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-cardBg border border-brand-border">
+                            <i data-lucide="code" class="w-6 h-6 text-brand-cyan mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Modern Web Design</h4>
+                            <p class="text-xs text-gray-400 mt-1">Fast, Responsive, and SEO-Friendly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Progress Metrics -->
+                <div class="bg-brand-cardBg p-8 rounded-2xl border border-brand-border space-y-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Your Core Strengths & Expertise</h3>
+                    
+                    <div>
+                        <div class="flex justify-between text-sm font-medium mb-1">
+                            <span class="text-white">Commercial & Portrait Photography</span>
+                            <span class="text-brand-gold">95%</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-gold rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-medium mb-1">
+                            <span class="text-white">Videography & Color Grading (Adobe Premiere Pro / DaVinci Resolve)</span>
+                            <span class="text-brand-gold">90%</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-gold rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-medium mb-1">
+                            <span class="text-white">Social Media Management & Content Strategy</span>
+                            <span class="text-brand-gold">88%</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-gold rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-medium mb-1">
+                            <span class="text-white">Frontend Web Development (HTML, Tailwind CSS, React, JavaScript)</span>
+                            <span class="text-brand-gold">92%</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-gold rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">Professional Services</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Creative Solutions for Every Need</h2>
+                <p class="text-gray-400">Designed to strengthen your personal brand and accelerate business growth with premium visual content and dependable digital platforms.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1: Photography -->
+                <div class="bg-brand-cardBg border border-brand-border rounded-2xl p-6 hover:border-brand-gold/60 transition-all duration-300 card-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
+                            <i data-lucide="camera" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Photography</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Capture stunning, high-quality images with professional lighting and precision retouching, tailored to your unique requirements.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Portrait & Headshot Photography</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Commercial Product Photography</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Event & Corporate Photography</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Architecture & Interior Photography</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="text-xs font-semibold text-brand-gold group-hover:text-white flex items-center gap-1 transition-colors">
+                        Book Photography Services <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Videography -->
+                <div class="bg-brand-cardBg border border-brand-border rounded-2xl p-6 hover:border-brand-gold/60 transition-all duration-300 card-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
+                            <i data-lucide="video" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Videography</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Delivering cinematic-quality videos through every stage of production, from filming and editing to industry-standard color grading.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> TikTok, Instagram & YouTube</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Brand Promotional Videos</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Event Highlight Videos</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Professional Color Grading</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="text-xs font-semibold text-brand-gold group-hover:text-white flex items-center gap-1 transition-colors">
+                        Book a Reel Video <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Social Media Maintenance -->
+                <div class="bg-brand-cardBg border border-brand-border rounded-2xl p-6 hover:border-brand-gold/60 transition-all duration-300 card-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
+                            <i data-lucide="share-2" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Social Media Maintenance</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Strategic management of Instagram, TikTok, and LinkedIn accounts to enhance organic reach, audience engagement, and follower growth.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Content Calendar Planning</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Feed Design & Copywriting</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Daily Posting & Community Engagement</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Monthly Analytics Reports</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="text-xs font-semibold text-brand-gold group-hover:text-white flex items-center gap-1 transition-colors">
+                        Manage My Social Media <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4: Website Development -->
+                <div class="bg-brand-cardBg border border-brand-border rounded-2xl p-6 hover:border-brand-gold/60 transition-all duration-300 card-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-6 group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
+                            <i data-lucide="globe" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Website Development</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Designing and developing responsive, elegant, and high-performance websites for company profiles, portfolios, and online stores.
+                        </p>
+                        <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Company Profile Website</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> High-Converting Landing Pages</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Professional Portfolio Website</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i> Speed Optimization & SEO</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="text-xs font-semibold text-brand-gold group-hover:text-white flex items-center gap-1 transition-colors">
+                        Start Your Website Project <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-slate-950/40 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">Portfolio Gallery</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Portfolio</h2>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-2 bg-brand-cardBg p-1.5 rounded-xl border border-brand-border">
+                    <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-brand-gold text-slate-950" data-filter="all">All Projects</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all text-gray-400 hover:text-white" data-filter="photo">Photography</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all text-gray-400 hover:text-white" data-filter="video">Videography</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all text-gray-400 hover:text-white" data-filter="social">Social Media</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold transition-all text-gray-400 hover:text-white" data-filter="web">Website</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Photo -->
+                <div class="portfolio-item photo bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/WhatsApp%20Image%202026-09-28%20at%2019.33.52.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openLightbox('file:///C:/Users/eHP/Downloads/WhatsApp%20Image%202026-09-28%20at%2019.33.52.jpeg')" class="w-10 h-10 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform">
+                                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-2.5 py-1 rounded-md">Photography</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Guest Request</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 1</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Photo -->
+                <div class="portfolio-item photo bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/WhatsApp%20Image%202026-09-28%20at%2019.57.28.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                            <button onclick="openLightbox('file:///C:/Users/eHP/Downloads/WhatsApp%20Image%202026-09-28%20at%2019.57.28.jpeg')" class="w-10 h-10 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform">
+                                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-2.5 py-1 rounded-md">Photography</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Cocktail Class</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 2</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Photo -->
+                <div class="portfolio-item photo bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/photo-1534528741775-53994a69daeb.jpg" alt="Product Photography" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openLightbox('file:///C:/Users/eHP/Downloads/photo-1534528741775-53994a69daeb.jpg')" class="w-10 h-10 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform">
+                                <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-gold uppercase tracking-wider bg-brand-gold/10 px-2.5 py-1 rounded-md">Fotografi</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Megazine Cover</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 3.</p>
+                    </div>
+                </div>
+
+                <!-- Project 1: Video -->
+                <div class="portfolio-item video bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20203729.png" alt="Cinematic Commercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openVideoModal('Sample 1', 'file:///C:/Users/eHP/Downloads/De%20Bintan%20Villa%20-%20The%20Iconic%20of%20Bintan%20Island.mp4')" class="w-12 h-12 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                                <i data-lucide="play" class="w-6 h-6 ml-0.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-400/10 px-2.5 py-1 rounded-md">Videography</span>
+                        <h3 class="text-lg font-bold text-white mt-3">deBitan Villa</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 1</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Video -->
+                <div class="portfolio-item video bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20212023.png" alt="Cinematic Commercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openVideoModal('Sample 2', 'file:///C:/Users/eHP/Downloads/screen%202%20(1).mp4')" class="w-12 h-12 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                                <i data-lucide="play" class="w-6 h-6 ml-0.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-400/10 px-2.5 py-1 rounded-md">Videography</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Doulos Phos The Ship Hotel</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 2</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Video -->
+                <div class="portfolio-item video bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20210039.png" alt="Event Highlights" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openVideoModal('Sample 3', 'file:///C:/Users/eHP/Downloads/lv_0_20260921131036.mp4')" class="w-12 h-12 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                                <i data-lucide="play" class="w-6 h-6 ml-0.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider bg-purple-400/10 px-2.5 py-1 rounded-md">Videography</span>
+                        <h3 class="text-lg font-bold text-white mt-3">The Sanchaya</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 3</p>
+                    </div>
+                </div>
+
+                <!-- Project 1: Social Media -->
+                <div class="portfolio-item social bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/instagram-social-media-icons-vector-50108510.jpg" alt="Instagram" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                            <div>
+                                <p class="text-brand-gold font-bold text-2xl">+240%</p>
+                                <p class="text-xs text-white">Organic Engagement Growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider bg-pink-400/10 px-2.5 py-1 rounded-md">Social Media</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Instagram</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 1</p>
+                    </div>
+                </div>
+
+                <!-- Project 2: Social Media -->
+                <div class="portfolio-item social bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/apa_itu_tiktok_go_primary.jpg" alt="TikTok" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                            <div>
+                                <p class="text-brand-gold font-bold text-2xl">+240%</p>
+                                <p class="text-xs text-white">Organic Engagement Growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider bg-pink-400/10 px-2.5 py-1 rounded-md">Social Media</span>
+                        <h3 class="text-lg font-bold text-white mt-3">TikTok</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 2</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Social Media -->
+                <div class="portfolio-item social bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///C:/Users/eHP/Downloads/1-14.png" alt="LinkedIn" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center">
+                            <div>
+                                <p class="text-brand-gold font-bold text-2xl">+240%</p>
+                                <p class="text-xs text-white">Organic Engagement Growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-pink-400 uppercase tracking-wider bg-pink-400/10 px-2.5 py-1 rounded-md">Social Media</span>
+                        <h3 class="text-lg font-bold text-white mt-3">LinkedIn</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 3</p>
+                    </div>
+                </div>
+
+                <!-- Project 1: Website Dev -->
+                <div class="portfolio-item web bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20200654.png" alt="Architect Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openWebModal('Sample 1', 'https://templatemo.com/live/templatemo_587_tiya_golf_club')" class="px-4 py-2 bg-brand-cyan text-slate-950 font-bold rounded-lg text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                <i data-lucide="external-link" class="w-4 h-4"></i> Live Preview Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-wider bg-brand-cyan/10 px-2.5 py-1 rounded-md">Web Development</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Golf Website</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 1.</p>
+                    </div>
+                </div>
+
+                
+                 <!-- Project 2: Website Dev -->
+                <div class="portfolio-item web bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20213006.png" alt="Architect Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openWebModal('Sample 2', 'https://ladanglima.com/our-company/')" class="px-4 py-2 bg-brand-cyan text-slate-950 font-bold rounded-lg text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                <i data-lucide="external-link" class="w-4 h-4"></i> Live Preview Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-wider bg-brand-cyan/10 px-2.5 py-1 rounded-md">Web Development</span>
+                        <h3 class="text-lg font-bold text-white mt-3">UMKM Website</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 2.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Website Dev -->
+                <div class="portfolio-item web bg-brand-cardBg border border-brand-border rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3]">
+                        <img src="file:///D:/data%20C/data%20Pictures/Screenshots/Screenshot%202026-09-28%20214218.png" alt="Architect Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button onclick="openWebModal('Sample 3', 'https://69b0ccc395057.site123.me/')" class="px-4 py-2 bg-brand-cyan text-slate-950 font-bold rounded-lg text-xs flex items-center gap-2 hover:scale-105 transition-transform">
+                                <i data-lucide="external-link" class="w-4 h-4"></i> Live Preview Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-[10px] font-bold text-brand-cyan uppercase tracking-wider bg-brand-cyan/10 px-2.5 py-1 rounded-md">Web Development</span>
+                        <h3 class="text-lg font-bold text-white mt-3">Coffee Shop Website</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sample 3</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Calculator Section -->
+    <section id="calculator" class="py-24 relative bg-slate-950/60 border-b border-brand-border/40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">Interactive Calculator</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Estimate Your Project Cost</h2>
+                <p class="text-gray-400 text-sm mt-2">Choose the service package you need to see an estimated budget in real time.</p>
+            </div>
+
+            <div class="bg-brand-cardBg border border-brand-border rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Selection Options -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-brand-border pb-3">
+                            <i data-lucide="check-square" class="w-5 h-5 text-brand-gold"></i>
+                            Select Your Desired Service:
+                        </h3>
+
+                        <div class="space-y-3" id="calc-options">
+                            <!-- Option 1 -->
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-slate-900/60 border border-brand-border/60 cursor-pointer hover:border-brand-gold transition-all">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" value="2000000" data-name="High-Res Retouched + RAW Photo" class="calc-check w-5 h-5 accent-brand-gold rounded">
+                                    <div>
+                                        <p class="text-sm font-semibold text-white">Photography + Editing Session</p>
+                                        <p class="text-xs text-gray-400">High-Res Retouched + RAW Photo</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-brand-gold">IDR 2.000.000</span>
+                            </label>
+
+                            <!-- Option 2 -->
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-slate-900/60 border border-brand-border/60 cursor-pointer hover:border-brand-gold transition-all">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" value="3000000" data-name="Cinematic-quality + Editing + Backsound License" class="calc-check w-5 h-5 accent-brand-gold rounded">
+                                    <div>
+                                        <p class="text-sm font-semibold text-white">Videography & Photography + Editing Session</p>
+                                        <p class="text-xs text-gray-400">Cinematic-quality + Editing + Backsound License</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-brand-gold">IDR 3.000.000</span>
+                            </label>
+
+                            <!-- Option 3 -->
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-slate-900/60 border border-brand-border/60 cursor-pointer hover:border-brand-gold transition-all">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" value="4000000" data-name="Content Feed + Reels + Copywriting + Reporting" class="calc-check w-5 h-5 accent-brand-gold rounded">
+                                    <div>
+                                        <p class="text-sm font-semibold text-white">Social Media Maintenance (12 month)</p>
+                                        <p class="text-xs text-gray-400">Content Feed + Reels + Copywriting + Reporting</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-brand-gold">IDR 4.000.000</span>
+                            </label>
+
+                            <!-- Option 4 -->
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-slate-900/60 border border-brand-border/60 cursor-pointer hover:border-brand-gold transition-all">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" value="6500000" data-name="Custom Design + Domain + Fast Hosting + SEO" class="calc-check w-5 h-5 accent-brand-gold rounded">
+                                    <div>
+                                        <p class="text-sm font-semibold text-white">Website Company Profile / Landing Page</p>
+                                        <p class="text-xs text-gray-400">Custom Design + Domain + Fast Hosting + SEO</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold text-brand-gold">IDR 6.500.000</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Summary & Output -->
+                    <div class="lg:col-span-5 bg-slate-900 p-6 rounded-2xl border border-brand-border flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4">Price Estimate Breakdown</h4>
+                            <div id="selected-list" class="space-y-2 text-xs text-gray-400 min-h-[120px]">
+                                <p class="italic text-gray-500">No service selected. Please check the box on the left.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-brand-border pt-4 mt-6">
+                            <div class="flex justify-between items-baseline mb-6">
+                                <span class="text-sm text-gray-300 font-medium">Estimated Total:</span>
+                                <span id="calc-total" class="text-2xl font-extrabold text-brand-gold">IDR 0</span>
+                            </div>
+                            <button id="book-calculated-btn" onclick="sendCalculatedToWA()" class="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                Request Estimate via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">Client Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Client Feedback on Our Results</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-brand-cardBg border border-brand-border p-6 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-400 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed">
+                            "The quality of the video reels and product photos has truly elevated our fashion brand to the next level. Our sales turnover surged dramatically following the visual rebranding!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border/60">
+                        <img src="file:///C:/Users/eHP/Downloads/1546d15ce5dd2946573b3506df109d00.png" alt="Client 1" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-sm font-bold text-white">Eshi</p>
+                            <p class="text-xs text-gray-400">Ower-Coffein Batam</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-brand-cardBg border border-brand-border p-6 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-400 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed">
+                            "The company profile website built by the team is extremely fast and aesthetic. The direct WhatsApp contact integration makes it much easier for potential clients to reach out to us."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border/60">
+                        <img src="file:///C:/Users/eHP/Downloads/1546d15ce5dd2946573b3506df109d00.png" alt="Client 2" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-sm font-bold text-white">Muhammad Syahwan</p>
+                            <p class="text-xs text-gray-400">Direktur BUMDES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-brand-cardBg border border-brand-border p-6 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex text-amber-400 gap-1">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm italic leading-relaxed">
+                            "Our cafe's Instagram management was completed on schedule with consistently fresh content ideas. Organic followers increased significantly within 3 months."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-brand-border/60">
+                        <img src="file:///C:/Users/eHP/Downloads/1546d15ce5dd2946573b3506df109d00.png" alt="Client 3" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-sm font-bold text-white">Hana K</p>
+                            <p class="text-xs text-gray-400">Influencer-Coffee Shop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-950/80 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Info Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-gold font-semibold text-sm uppercase tracking-widest">Collaborate With Us</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Ready to Bring Your Creative Ideas to Life?</h2>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        Discuss your photography, videography, social media management, or web development needs. I will respond within 24 hours at the latest.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-cardBg border border-brand-border">
+                            <div class="w-10 h-10 rounded-lg bg-brand-gold/10 text-brand-gold flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Email</p>
+                                <p class="text-sm font-semibold text-white">moharvin1234@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-cardBg border border-brand-border">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">WhatsApp</p>
+                                <p class="text-sm font-semibold text-white">+62 822-6899-0795</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-cardBg border border-brand-border">
+                            <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Address</p>
+                                <p class="text-sm font-semibold text-white">Pelita Baru, Desa Kuala Sempang, Kec. Seri Kuala Lobam, Bintan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Form Side -->
+                <div class="lg:col-span-7 bg-brand-cardBg border border-brand-border rounded-3xl p-6 sm:p-8 shadow-xl">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">Name</label>
+                                <input type="text" id="form-name" required placeholder="Budi Pratama" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-brand-border text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">WhatsApp</label>
+                                <input type="tel" id="form-phone" required placeholder="+62 812 3456 7890" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-brand-border text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">Select Main Service</label>
+                            <select id="form-service" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-brand-border text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                                <option value="">-- Choose One --</option>
+                                <option value="Fotografi">Photography (Portrait / Product / Event)</option>
+                                <option value="Videografi">Videography & Video or Reels</option>
+                                <option value="Maintenance Social Media">Social Media Maintenance</option>
+                                <option value="Website Development">Custom Web Development</option>
+                                <option value="Paket Combo All-in-One">Visual & Website Package</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">Tell us about your project / Message</label>
+                            <textarea id="form-message" rows="4" required placeholder="Describe your desired concept, location, or deadline..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-brand-border text-white text-sm focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-500 hover:to-brand-gold text-slate-950 font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            Send Message via Direct WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-brand-border text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Hitam.Putih.Literasi.Studio. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/arvin.muhammad_junyarto?stkn=eDVoZWdmNGVsNW16" class="hover:text-brand-gold transition-colors">Instagram</a>
+                <a href="https://www.tiktok.com/@arvinlokcer?_r=1&_t=ZS-9AAUEsfDPVw" class="hover:text-brand-gold transition-colors">TikTok</a>
+                <a href="https://www.linkedin.com/in/muhammad-arvin-junyarto-7b0332281?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="hover:text-brand-gold transition-colors">LinkedIn</a>
+                <a href="https://weixin//dl/_6282268990795WAsaya" class="hover:text-brand-gold transition-colors">WeChat</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS SECTION -->
+    
+    <!-- Lightbox Modal for Images -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <button onclick="closeModal('lightbox-modal')" class="absolute top-6 right-6 text-white p-2 hover:text-brand-gold transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="max-w-4xl w-full text-center space-y-4">
+            <img id="lightbox-img" src="" alt="" class="max-h-[80vh] mx-auto rounded-xl shadow-2xl object-contain">
+            <h3 id="lightbox-title" class="text-xl font-bold text-white"></h3>
+            <p id="lightbox-category" class="text-xs text-brand-gold uppercase tracking-wider"></p>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <button onclick="closeModal('video-modal')" class="absolute top-6 right-6 text-white p-2 hover:text-brand-gold transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="max-w-3xl w-full space-y-4">
+            <h3 id="video-title" class="text-xl font-bold text-white"></h3>
+            <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black">
+                <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Website Live Preview Modal -->
+    <div id="web-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <button onclick="closeModal('web-modal')" class="absolute top-6 right-6 text-white p-2 hover:text-brand-gold transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="max-w-5xl w-full h-[85vh] bg-brand-cardBg border border-brand-border rounded-2xl flex flex-col overflow-hidden">
+            <div class="p-4 border-b border-brand-border flex items-center justify-between">
+                <span id="web-title" class="font-bold text-white text-sm">Preview Website</span>
+                <span class="text-xs text-gray-400 bg-slate-800 px-3 py-1 rounded-full">Interactive Demo Mode</span>
+            </div>
+            <div class="flex-1 bg-white">
+                <iframe id="web-iframe" class="w-full h-full" src="about:blank"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Background Particle Mesh Canvas Logic
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.8;
+                this.speedY = (Math.random() - 0.5) * 0.8;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(223, 177, 91, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 40; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(223, 177, 91, ${1 - distance / 120})`;
+                        ctx.lineWidth = 0.4;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // Portfolio Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-gold', 'text-slate-950');
+                    b.classList.add('text-gray-400');
+                });
+                btn.classList.add('bg-brand-gold', 'text-slate-950');
+                btn.classList.remove('text-gray-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Cost Calculator Interactive Logic
+        const checkboxes = document.querySelectorAll('.calc-check');
+        const calcTotalEl = document.getElementById('calc-total');
+        const selectedListEl = document.getElementById('selected-list');
+        let totalAmount = 0;
+        let selectedServices = [];
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateCalculator);
+        });
+
+        function updateCalculator() {
+            totalAmount = 0;
+            selectedServices = [];
+            selectedListEl.innerHTML = '';
+
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    const val = parseInt(cb.value);
+                    const name = cb.getAttribute('data-name');
+                    totalAmount += val;
+                    selectedServices.push(name);
+
+                    const p = document.createElement('p');
+                    p.className = 'flex items-center gap-2 text-gray-200';
+                    p.innerHTML = `<span class="text-brand-gold">✓</span> ${name}`;
+                    selectedListEl.appendChild(p);
+                }
+            });
+
+            if (selectedServices.length === 0) {
+                selectedListEl.innerHTML = '<p class="italic text-gray-500">No service selected. Please check the box on the left.</p>';
+            }
+
+            calcTotalEl.textContent = `IDR ${totalAmount.toLocaleString('id-ID')}`;
+        }
+
+        // WhatsApp Direct Booking
+        function sendCalculatedToWA() {
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service on the calculator first!');
+                return;
+            }
+
+            const phone = "+62 822-6899-0795"
+            let text = `Halo, saya ingin berkonsultasi mengenai layanan berikut:\n\n`;
+            selectedServices.forEach(s => text += `- ${s}\n`);
+            text += `\n*Total Perkiraan Estimasi:* IDR ${totalAmount.toLocaleString('id-ID')}\n\nApakah bisa dijadwalkan diskusi lebih lanjut?`;
+
+            window.open(`https://wa.me/${+6282268990795}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phoneNum = document.getElementById('form-phone').value;
+            const service = document.getElementById('form-service').value;
+            const message = document.getElementById('form-message').value;
+
+            const targetPhone = "6281234567890"; // Ganti dengan nomor WhatsApp Anda
+            const text = `Hallo Hitam Putih Literasi Studio,\n\nNama: ${name}\nNo WA: ${phoneNum}\nLayanan: ${service}\n\nPesan/Detail:\n${message}`;
+
+            window.open(`https://wa.me/${+6282268990795}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Modal Helpers
+        function openLightbox(src, title, cat) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-category').textContent = cat;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function openVideoModal(title, embedUrl) {
+            document.getElementById('video-title').textContent = title;
+            document.getElementById('video-iframe').src = embedUrl;
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+
+        function openWebModal(title, demoUrl) {
+            document.getElementById('web-title').textContent = title;
+            document.getElementById('web-iframe').src = demoUrl;
+            document.getElementById('web-modal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            if(modalId === 'video-modal') {
+                document.getElementById('video-iframe').src = '';
+            }
+            if(modalId === 'web-modal') {
+                document.getElementById('web-iframe').src = 'about:blank';
+            }
+        }
+    </script>
+</body>
+</html>
